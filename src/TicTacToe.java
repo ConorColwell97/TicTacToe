@@ -9,7 +9,7 @@ public class TicTacToe {
         boolean[] seen = new boolean[9];
 
         HashMap <Integer, String> positions = new HashMap<>();
-        int count = 0;
+        int count = 1;
         for(int i = 0; i < 3; i++) {
             for(int j = 0; j < 3; j++) {
                 String position = i +":" +j;
@@ -29,7 +29,7 @@ public class TicTacToe {
                     pos = sc.nextInt();
                 }
 
-                while(seen[pos]) {
+                while(seen[pos-1]) {
                     System.out.println("Position already filled, try again...");
                     pos = sc.nextInt();
                 }
@@ -40,7 +40,7 @@ public class TicTacToe {
                 int j = Integer.parseInt(key.split(":")[1]);
 
                 board[i][j] = 'x';
-                seen[pos] = true;
+                seen[pos-1] = true;
 
                 if(isWinnerX(board)) {
                     System.out.println("Player x wins!!!");
@@ -56,7 +56,7 @@ public class TicTacToe {
                     pos = sc.nextInt();
                 }
 
-                while(seen[pos]) {
+                while(seen[pos-1]) {
                     System.out.println("Position already filled, try again...");
                     pos = sc.nextInt();
                 }
@@ -67,7 +67,7 @@ public class TicTacToe {
                 int j = Integer.parseInt(key.split(":")[1]);
 
                 board[i][j] = 'o';
-                seen[pos] = true;
+                seen[pos-1] = true;
 
                 if(isWinnerO(board)) {
                     System.out.println("Player o wins!!!");
